@@ -1,0 +1,25 @@
+# secrets
+.env
+.env.*
+!.env.example
+
+# python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# tools / editors
+.ipynb_checkpoints/
+.idea/
+.vscode/
+*.swp
+
+# streamlit / local
+.streamlit/secrets.toml
