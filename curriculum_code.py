@@ -503,11 +503,24 @@ answer = msg.content or "(상한에 걸렸다)"  # None 이 배열에 들어가�
 
 
 from curriculum_code_more import register as register_more
+from curriculum_code_fill import register as register_fill
 
 register_more(put)
+register_fill(put)
 
 
 def code_for(lecture_id: str, item_id: str | None) -> str:
-    if not item_id:
-        return ""
-    return CODES.get((lecture_id, item_id), "")
+    if item_id:
+        return CODES.get((lecture_id, item_id), "")
+    from curriculum import LECTURES
+
+    chunks: list[str] = []
+    for lec in LECTURES:
+        if lec["id"] != lecture_id:
+            continue
+        for it in lec.get("items", []):
+            src = CODES.get((lecture_id, it["id"]), "").rstrip()
+            if src:
+                chunks.append(f"# --- {it['title']} ---\n{src}\n")
+        break
+    return "\n".join(chunks)

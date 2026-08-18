@@ -378,7 +378,11 @@ with body:
     src = code_for(lecture["id"], item["id"] if item else None)
     if src:
         st.markdown("#### 이 화면을 구성하는 코드")
-        st.caption("한 줄마다 주석이 있다. 코드가 이 칸의 실체다.")
+        st.caption(
+            "한 줄마다 주석이 있다. 수업 전체를 보면 그날 항목 예제가 이어진다."
+            if not item
+            else "한 줄마다 주석이 있다. 코드가 이 칸의 실체다."
+        )
         lang = "java" if "System.out" in src or "@Tool" in src or "chatClient" in src else "python"
         if src.lstrip().startswith("# git") or "git switch" in src or "compose.yaml" in src:
             lang = "bash"
