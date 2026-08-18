@@ -59,11 +59,31 @@ OPENAI_MODEL=gpt-5.4-nano
 
 ## 4. 실행
 
+점검봇:
+
 ```bash
 streamlit run app.py
 ```
 
+수업 그래프 · 과목 퀴즈 (오늘 작업, `parse` + Pydantic):
+
+```bash
+streamlit run lecture_quiz_app.py
+```
+
 브라우저가 자동으로 열리지 않으면 터미널에 표시된 로컬 주소로 접속합니다.
+
+제목 아래 과목 단추 8개(Streamlit · 머신러닝 · 딥러닝 · 미니프로젝트 · Spring AI · PyTorch NLP · LLM 핵심기술 · LLM API)가 보여야 합니다. 안 보이면 **전체 맵으로**를 누르거나 페이지를 새로고침합니다.
+
+| 파일 | 내용 |
+|---|---|
+| `lecture_quiz_app.py` | vis.js 그래프 + 큰 칸 + 퀴즈 3문제 (`chat.completions.parse`) |
+| `curriculum.py` / `curriculum_more.py` | 수업 31개, 항목 163개 |
+| `curriculum_code.py` / `curriculum_code_more.py` | 항목마다 줄 주석 예제 코드 |
+| `quiz.py` | 터미널 퀴즈 |
+| `structured.ipynb` · `tools.ipynb` | Day 2 구조화 출력 · 도구 호출 |
+| `day02/tool_chat.py` | 날씨·계산 도구 챗 |
+| `수업정리/` | 강사 코드 정리와 슬라이드 풀이 |
 
 ## 핵심 학습 포인트
 
